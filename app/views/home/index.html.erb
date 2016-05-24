@@ -1,2 +1,19 @@
-<h1>Home#index</h1>
-<p>Find me in app/views/home/index.html.erb</p>
+<h1>Welcome to FaceFactory</h1>
+<% if user_signed_in? %>
+  <% if current_user.profile %>
+    <div class="row">
+      <div class="col-md-4">
+        <%= render 'status_updates/form' %>
+        <% @status_updates.each do |status| %>
+          <div class="card card-block">
+            <p><%= status.user.profile.full_name %></p>
+            <p><%= status.status %></p>
+            <p>Posted on: <%= time_ago_in_words(status.created_at) %></p>
+          </div>
+        <% end %>
+      </div>
+    </div>
+    <% else %>
+    <%= render 'profiles/form' %>
+  <% end %>
+<% end %>
