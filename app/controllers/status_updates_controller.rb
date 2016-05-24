@@ -69,6 +69,6 @@ class StatusUpdatesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def status_update_params
-      params.require(:status_update).permit(:status, :user_id)
+      params.require(:status_update).permit(:status, :image)
     end
 end

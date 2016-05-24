@@ -19,7 +19,9 @@
       <div class="card card-block">
         <h2 class="card-title">Members</h2>
         <% @members.each do |member| %>
-        <p><%= link_to member.profile.full_name, profile_path(member.profile) %></p>
+          <% if member.profile %>
+            <p><%= link_to member.profile.full_name, profile_path(member.profile) %></p>
+          <% end %>
         <% end %>
       </div>
     </div>

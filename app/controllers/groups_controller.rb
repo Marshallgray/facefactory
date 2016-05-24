@@ -13,7 +13,7 @@ class GroupsController < ApplicationController
   # GET /groups
   # GET /groups.json
   def index
-    @groups = Group.all
+    @groups = Group.find_each
   end
 
   # GET /groups/1

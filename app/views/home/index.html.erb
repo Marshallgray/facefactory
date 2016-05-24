@@ -5,7 +5,10 @@
       <div class="col-md-4">
         <%= render 'status_updates/form' %>
         <% @status_updates.each do |status| %>
-          <div class="card card-block">
+          <div class="card <%= 'card-block' unless status.image.nil? %>">
+            <% if status.image? %>
+              <img src="<%= status.image %>" class="card-img-top" width="100%">
+            <% end %>
             <p><%= status.user.profile.full_name %></p>
             <p><%= status.status %></p>
             <p>Posted on: <%= time_ago_in_words(status.created_at) %></p>
