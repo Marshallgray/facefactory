@@ -19,6 +19,9 @@ class ProfilesController < ApplicationController
 
   # GET /profiles/1/edit
   def edit
+    unless @profile.user == current_user
+      redirect_to profile_path(current_user.profile)
+    end
   end
 
   # POST /profiles

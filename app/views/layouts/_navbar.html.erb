@@ -6,6 +6,7 @@
       <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
     </li>
     <% if user_signed_in? %>
+      <li class="nav-item"><%= link_to 'Groups', groups_path, class: 'nav-link' %></li>
       <% if current_user.profile %>
         <li class="nav-item <%= 'active' if current_page?(profile_path(current_user.profile)) %>">
           <%= link_to 'My profile',

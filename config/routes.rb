@@ -1,4 +1,12 @@
 Rails.application.routes.draw do
+  resources :groups do
+    member do
+      post :join
+    end
+    member do
+      post :leave
+    end
+  end
   resources :status_updates
   resources :profiles
   devise_for :users
